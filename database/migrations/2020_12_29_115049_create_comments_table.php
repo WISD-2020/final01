@@ -14,7 +14,12 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id();
+            $table->id();                          #留言編號
+            $table->string('user_id');      #使用者名稱
+            $table->foreign('user_id')->references('name')->on('users');
+            $table->dateTime('date');       #日期
+            $table->text('content');        #內容
+            $table->boolean('is_major');    #是否為重要客戶
             $table->timestamps();
         });
     }

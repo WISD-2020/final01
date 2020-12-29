@@ -14,7 +14,10 @@ class CreateCouponsTable extends Migration
     public function up()
     {
         Schema::create('coupons', function (Blueprint $table) {
-            $table->id();
+            $table->id();                      #優惠券編號
+            $table->string('user_id');  #使用者名稱
+            $table->foreign('user_id')->references('name')->on('users');
+            $table->integer('amount');  #數量
             $table->timestamps();
         });
     }

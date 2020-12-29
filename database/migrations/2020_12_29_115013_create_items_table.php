@@ -14,7 +14,12 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id();
+            $table->integer('order_id');    #訂單編號
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->integer('food_id');     #餐點編號
+            $table->foreign('food_id')->references('id')->on('food');
+            $table->integer('amount');      #數量
+            $table->integer('total');       #總計
             $table->timestamps();
         });
     }
