@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Food extends Model
 {
     use HasFactory;
+
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }
