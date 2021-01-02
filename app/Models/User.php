@@ -25,7 +25,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'sex',
+        'birthday',
         'email',
+        'phone',
         'password',
     ];
 
@@ -60,7 +63,7 @@ class User extends Authenticatable
     ];
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comments::class);
     }
 
     public function carts()
