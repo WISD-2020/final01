@@ -12,11 +12,11 @@ class Food extends Model
 
     public function items()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsToMany(Item::class);
     }
 
     public function carts()
     {
-        return $this->hasMany(Cart::class);
+        return $this->belongsToMany(Cart::class);
     }
 }
