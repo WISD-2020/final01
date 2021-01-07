@@ -14,11 +14,27 @@
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
+            <div>
+                <x-jet-label for="sex" value="{{ __('Sex') }}" />
+                <input type="radio" id="sex" value="1" name="sex" checked>男
+                <input type="radio" id="sex" value="0" name="sex">女
+            </div>
+
+            <div>
+                <x-jet-label for="birthday" value="{{ __('Birthday') }}" />
+                <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required autofocus autocomplete="birthday" />
+            </div>
+
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
-            
+
+            <div>
+                <x-jet-label for="phone" value="{{ __('Phone') }}" />
+                <x-jet-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+            </div>
+
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
