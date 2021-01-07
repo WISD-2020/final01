@@ -29,3 +29,4 @@ Route::get('/user/edit',[\App\Http\Controllers\UserController::class,'edit'])->n
 #更新會員資料
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 
+Route::get('/manage',[\App\Http\Controllers\ManageController::class,'index'])->name('manage.index');
