@@ -22,4 +22,10 @@ class UserController extends Controller
         $info->update($request->all());
         return redirect()->route('dashboard');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('welcome');
+    }
 }
