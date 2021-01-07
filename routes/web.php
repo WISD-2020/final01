@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -32,7 +32,8 @@ Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update']
 #後台根路由
 Route::get('/manage',[\App\Http\Controllers\ManageController::class,'index'])->name('manage.index');
 
-
+#登出
+Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');
 
 #Clean Blog樣板套用測試
 Route::get('posts',[\App\Http\Controllers\PostsController::class,'index'])->name('posts.index');
