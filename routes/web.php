@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 #修改會員資料頁面
-Route::get('/user/edit',[\App\Http\Controllers\UserController::class,'edit'])->name('user.edit');
+Route::get('/user/change',[\App\Http\Controllers\UserController::class,'edit'])->name('user.change');
 
 #更新會員資料
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');

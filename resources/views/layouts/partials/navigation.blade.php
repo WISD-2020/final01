@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('posts.index')}}">Home</a>
+                    <a class="nav-link" href="{{route('user.change')}}">會員修改資料</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('posts.about')}}">About</a>
