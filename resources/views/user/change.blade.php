@@ -1,30 +1,57 @@
-<form action="/user/{{$user->id}}" method="POST" role="form">
-    @method('PATCH')
-    @csrf
-<H1>修改會員資料</H1>
+@extends('layouts.master')
 
-會員名稱：<br>
-{{$user->name}}<br><br>
+@section('title','修改會員資料')
 
-性別：<br>
-    @if($user->sex == 1)
-       男
-    @else
-       女
-    @endif<br><br>
+@section('content')
 
-生日：<br>
-{{$user->birthday}}<br><br>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading">
+                        <h1>修改會員資料</h1>
+                        <span class="subheading">Modify your personal information.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-電話：<br>
-<input type="text" name="phone" value="{{$user->phone}}"><br><br>
-
-電子郵件：<br>
-    {{$user->email}} <br><br><br><br>
-
-    <input type="button" name="submit" value="修改">
-
-</form>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <form action="/user/{{$user->id}}" method="POST" role="form">
+                    @method('PATCH')
+                    @csrf
 
 
+                    會員名稱：<br>
+                    {{$user->name}}<br><br>
 
+                    性別：<br>
+                    @if($user->sex == 1)
+                        男
+                    @else
+                        女
+                    @endif<br><br>
+
+                    生日：<br>
+                    {{$user->birthday}}<br><br>
+
+                    電話：<br>
+                    <input type="text" name="phone" value="{{$user->phone}}"><br><br>
+
+                    電子郵件：<br>
+                    {{$user->email}} <br><br><br>
+
+                    <input type="submit" class="btn btn-success" name="submit" value="修改">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+@endsection
