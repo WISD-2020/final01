@@ -29,7 +29,7 @@ Route::get('/user/change',[\App\Http\Controllers\UserController::class,'edit'])-
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 
 #瀏覽點餐紀錄頁面
-Route::get('/order/{id}',[\App\Http\Controllers\OrderController::class,'index'])->name('order.index');
+Route::get('/order',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');
 
 #後台根路由
 Route::get('/manage',[\App\Http\Controllers\ManageController::class,'index'])->name('manage.index');

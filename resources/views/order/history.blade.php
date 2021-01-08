@@ -23,13 +23,39 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-{{--                <form action="/user/{{$user->id}}" method="POST" role="form">--}}
-{{--                    @method('PATCH')--}}
-{{--                    @csrf--}}
+                    @csrf
 
-{{--                    --}}
 
-{{--                </form>--}}
+
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th width="30" style="text-align: center">編號</th>
+                        <th>標題</th>
+                        <th width="70" style="text-align: center">精選？</th>
+                        <th width="100" style="text-align: center">功能</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($orders as $order)
+
+                            <tr>
+                                <td style="text-align: center">
+                                    {{$order->id}}
+                                </td>
+                                <td>
+                                    {{$order->user_id}}
+                                </td>
+                                <td style="text-align: center">
+                                    {{$order->date}}
+                                    {{$order->time}}
+                                </td>
+                            </tr>
+                        
+                    @endforeach
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
