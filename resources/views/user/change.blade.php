@@ -32,11 +32,7 @@
                     {{$user->name}}<br><br>
 
                     性別：<br>
-                    @if($user->sex == 1)
-                        男
-                    @else
-                        女
-                    @endif<br><br>
+                    {{($user->sex)? '男' : '女' }}<br><br>
 
                     生日：<br>
                     {{$user->birthday}}<br><br>

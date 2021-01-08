@@ -51,7 +51,7 @@
                                     {{$order->time}}
                                 </td>
                             </tr>
-                        
+
                     @endforeach
                     </tbody>
                 </table>
