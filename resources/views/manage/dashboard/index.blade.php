@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('manage.layouts.master')
 
 @section('title', '主控台')
 

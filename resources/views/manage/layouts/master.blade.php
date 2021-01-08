@@ -36,7 +36,7 @@
 
     <div id="wrapper">
 
-        @include('admin.layouts.partials.sidebar')
+        @include('manage.layouts.partials.sidebar')
 
         <div id="page-wrapper">
 

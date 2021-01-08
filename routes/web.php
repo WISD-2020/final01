@@ -34,11 +34,23 @@ Route::get('/order',[\App\Http\Controllers\OrderController::class,'index'])->nam
 #後台根路由
 Route::get('/manage',[\App\Http\Controllers\ManageController::class,'index'])->name('manage.index');
 
-#登出
-Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');
 
 #Clean Blog樣板套用測試
 Route::get('posts',[\App\Http\Controllers\PostsController::class,'index'])->name('posts.index');
 Route::get('post',[\App\Http\Controllers\PostsController::class,'show'])->name('posts.show');
 Route::get('about',[\App\Http\Controllers\PostsController::class,'about'])->name('posts.about');
 Route::get('contact',[\App\Http\Controllers\PostsController::class,'contact'])->name('posts.contact');
+
+
+
+
+#後台
+Route::prefix('manage')->group(function () {
+    Route::get('/', [\App\Http\Controllers\ManageDashboardController::class, 'index'])->name('manage.dashboard.index');
+#菜單
+
+#點單
+
+#評論
+    Route::get('posts', [\App\Http\Controllers\ManageCommentController::class, 'index'])->name('manage.comment.index');
+});
