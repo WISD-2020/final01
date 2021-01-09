@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="page-heading">
-                        <h1>點餐紀錄</h1>
-                        <span class="subheading">Order record.</span>
+                        <h1>點餐明細</h1>
+                        <span class="subheading">Order details.</span>
                     </div>
                 </div>
             </div>
@@ -31,37 +31,36 @@
                     <thead>
                     <tr>
                         <th width="10%" style="text-align: center">編號</th>
-                        <th width="20%" style="text-align: center">訂餐時間</th>
-                        <th width="25%" style="text-align: center">是否使用折扣</th>
-                        <th width="20%" style="text-align: center">總額</th>
-                        <th width="20%" style="text-align: center">查看詳細</th>
+                        <th width="20%" style="text-align: center">餐點編號</th>
+                        <th width="20%" style="text-align: center">數量</th>
+                        <th width="30%" style="text-align: center">價格</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($orders as $order)
+                    @foreach($items as $item)
 
                             <tr>
                                 <td style="text-align: center">
-                                    {{$order->id}}
+                                    {{$item->order_id}}
                                 </td>
                                 <td style="text-align: center">
-                                    {{$order->date}}<br>
-                                    {{$order->time}}
+                                    {{$item->food_id}}<br>
                                 </td>
                                 <td style="text-align: center">
-                                    {{($order->is_discount)? '有' : '無'}}
+                                    {{$item->amount}}
                                 </td>
                                 <td style="text-align: center">
-                                    {{$order->last_price}}
-                                </td>
-                                <td style="text-align: center">
-                                    <a class="btn btn-sm btn-primary" href="{{route('order.item',$order -> id)}}">點餐明細</a>
+                                    {{$item->total}}
                                 </td>
                             </tr>
 
                     @endforeach
+
                     </tbody>
                 </table>
+                <div align="center">
+                <a class="btn btn-success" href="{{route('order.history')}}">返回</a>
+                </div>
             </div>
         </div>
     </div>

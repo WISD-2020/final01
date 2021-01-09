@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,11 +49,14 @@ class OrderController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        $items=Item::where('order_id',$id)->get();
+        $data=['items'=>$items];
+        #dd($data);
+        return view('order.item',$data);
     }
 
     /**
