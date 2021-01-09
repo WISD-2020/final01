@@ -30,7 +30,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th width="10%" style="text-align: center">編號</th>
+                        <th width="15%" style="text-align: center">訂單編號</th>
                         <th width="20%" style="text-align: center">訂餐時間</th>
                         <th width="25%" style="text-align: center">是否使用折扣</th>
                         <th width="20%" style="text-align: center">總額</th>
