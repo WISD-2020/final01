@@ -30,8 +30,12 @@ Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update']
 
 #瀏覽點餐紀錄頁面
 Route::get('/order',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');
-#訂餐詳細頁面
+#點餐詳細頁面
 Route::get('/order/item/{id}',[\App\Http\Controllers\OrderController::class,'show'])->name('order.item');
+
+#問題回報頁面
+Route::get('/user/question',[\App\Http\Controllers\CommentsController::class,'index'])->name('user.question');
+
 
 #後台根路由
 Route::get('/manage',[\App\Http\Controllers\ManageController::class,'index'])->name('manage.index');

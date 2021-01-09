@@ -21,7 +21,7 @@
                     <a class="nav-link" href="{{route('user.change')}}">會員修改資料</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('posts.contact')}}">問題回報</a>
+                    <a class="nav-link" href="{{route('user.question')}}">問題回報</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.logout')}}">登出</a>

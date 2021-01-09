@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','點餐紀錄')
+@section('title','點餐明細')
 
 @section('content')
 
