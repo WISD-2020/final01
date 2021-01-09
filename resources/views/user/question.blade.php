@@ -23,7 +23,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-               
+                <div class="form-group">
+                    <label for="title">問題名稱：</label>
+                    <input name="title" value="" class="form-control" placeholder="請輸入您所遇到的問題">
+                </div>
+                <BR>
+                <div class="form-group">
+                    <label for="content">問題內容敘述：</label>
+                    <textarea id="content" name="content" class="form-control" rows="10"></textarea>
+                </div>
+                <BR>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">提交</button>
+                </div>
             </div>
         </div>
     </div>

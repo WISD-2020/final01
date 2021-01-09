@@ -27,21 +27,31 @@
                     @method('PATCH')
                     @csrf
 
-
-                    會員名稱：<br>
-                    {{$user->name}}<br><br>
-
-                    性別：<br>
-                    {{($user->sex)? '男' : '女' }}<br><br>
-
-                    生日：<br>
-                    {{$user->birthday}}<br><br>
-
-                    電話：<br>
-                    <input type="text" name="phone" value="{{$user->phone}}"><br><br>
-
-                    電子郵件：<br>
-                    {{$user->email}} <br><br><br>
+                    <div class="form-group">
+                        <label for="name">會員名稱：</label><br>
+                        {{$user->name}}
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="sex">性別：</label><br>
+                        {{($user->sex)? '男' : '女' }}
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="birthday">生日：</label><br>
+                        {{$user->birthday}}
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="phone">電話：</label><br>
+                        <input name="phone" value="{{$user->phone}}" class="form-control">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="email">電子郵件：</label><br>
+                        {{$user->email}}
+                    </div>
+                    <br><br>
 
                     <input type="submit" class="btn btn-success" name="submit" value="修改">
 
