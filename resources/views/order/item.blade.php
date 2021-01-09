@@ -38,13 +38,14 @@
                     </thead>
                     <tbody>
                     @foreach($items as $item)
+                        @foreach($food as $f)
 
                             <tr>
                                 <td style="text-align: center">
                                     {{$item->order_id}}
                                 </td>
                                 <td style="text-align: center">
-                                    {{$item->food_id}}<br>
+                                    {{$f->name}}
                                 </td>
                                 <td style="text-align: center">
                                     {{$item->amount}}
@@ -53,7 +54,7 @@
                                     {{$item->total}}
                                 </td>
                             </tr>
-
+                        @endforeach
                     @endforeach
 
                     </tbody>

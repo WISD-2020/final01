@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
 use App\Models\Item;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -53,8 +55,16 @@ class OrderController extends Controller
      */
     public function show($id)
     {
+        $food=DB::table('items')
+                ->join('food','food_id','=','id')
+                #->join('orders','order_id','=','id')
+                ->select('food.id','food.name')
+                ->get();
+
+        #dd($food);
+
         $items=Item::where('order_id',$id)->get();
-        $data=['items'=>$items];
+        $data=['items'=>$items,'food'=>$food];
         #dd($data);
         return view('order.item',$data);
     }
