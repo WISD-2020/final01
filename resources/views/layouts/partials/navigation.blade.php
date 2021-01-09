@@ -12,16 +12,16 @@
                     <a class="nav-link" href="{{route('dashboard')}}">首頁</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.change')}}">會員修改資料</a>
+                    <a class="nav-link" href="{{route('posts.show')}}">購物車</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('order.history')}}">點餐紀錄</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('posts.show')}}">Sample Post</a>
+                    <a class="nav-link" href="{{route('user.change')}}">會員修改資料</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('posts.contact')}}">Contact</a>
+                    <a class="nav-link" href="{{route('posts.contact')}}">問題回報</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.logout')}}">登出</a>
