@@ -30,22 +30,18 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th width="10%" style="text-align: center">編號</th>
-                        <th width="20%" style="text-align: center">餐點編號</th>
+                        <th width="40%" style="text-align: center">餐點名稱</th>
                         <th width="20%" style="text-align: center">數量</th>
                         <th width="30%" style="text-align: center">價格</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($items as $item)
-                        @foreach($food as $f)
+
 
                             <tr>
                                 <td style="text-align: center">
-                                    {{$item->order_id}}
-                                </td>
-                                <td style="text-align: center">
-                                    {{$f->name}}
+                                    {{$item->name}}
                                 </td>
                                 <td style="text-align: center">
                                     {{$item->amount}}
@@ -54,7 +50,7 @@
                                     {{$item->total}}
                                 </td>
                             </tr>
-                        @endforeach
+
                     @endforeach
 
                     </tbody>

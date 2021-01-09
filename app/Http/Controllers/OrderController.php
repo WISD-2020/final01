@@ -55,17 +55,13 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $food=DB::table('items')
+        $items=DB::table('items')
                 ->join('food','food_id','=','id')
-                #->join('orders','order_id','=','id')
-                ->select('items.order_id','food.id','food.name')
+                ->select('food.name','amount','total')
                 ->where('order_id','=',$id)
                 ->get();
 
-        #dd($food);
-
-        $items=Item::where('order_id',$id)->get();
-        $data=['items'=>$items,'food'=>$food];
+        $data=['items'=>$items];
         #dd($data);
         return view('order.item',$data);
     }
