@@ -15,7 +15,7 @@
                     <a class="nav-link" href="{{route('user.change')}}">會員修改資料</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('posts.about')}}">About</a>
+                    <a class="nav-link" href="{{route('order.history')}}">點餐紀錄</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('posts.show')}}">Sample Post</a>
