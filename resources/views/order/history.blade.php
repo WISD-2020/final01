@@ -30,10 +30,10 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th width="30" style="text-align: center">編號</th>
-                        <th>標題</th>
-                        <th width="70" style="text-align: center">精選？</th>
-                        <th width="100" style="text-align: center">功能</th>
+                        <th width="10%" style="text-align: center">編號</th>
+                        <th width="20%" style="text-align: center">訂餐時間</th>
+                        <th width="15%" style="text-align: center">是否使用折扣</th>
+                        <th width="15%" style="text-align: center">查看詳細</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,12 +43,15 @@
                                 <td style="text-align: center">
                                     {{$order->id}}
                                 </td>
-                                <td>
-                                    {{$order->user_id}}
+                                <td style="text-align: center">
+                                    {{$order->date}}<br>
+                                    {{$order->time}}
                                 </td>
                                 <td style="text-align: center">
-                                    {{$order->date}}
-                                    {{$order->time}}
+                                    {{($order->is_discount)? '有' : '無'}}
+                                </td>
+                                <td style="text-align: center">
+                                    <a class="btn btn-sm btn-primary" href="{{route('order.history',$order -> id)}}">訂餐明細</a>
                                 </td>
                             </tr>
 

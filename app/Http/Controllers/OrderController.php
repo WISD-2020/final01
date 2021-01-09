@@ -15,8 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $id=Auth::user()->id;
-        $orders=Order::find($id)->get();
+        /** @var TYPE_NAME $name */
+        $name=Auth::user()->name;
+        $orders=Order::where('user_id',$name)->get();
         $data=['orders'=>$orders];
         #dd($data);
         return view('order.history',$data);
