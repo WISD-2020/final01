@@ -58,7 +58,8 @@ class OrderController extends Controller
         $food=DB::table('items')
                 ->join('food','food_id','=','id')
                 #->join('orders','order_id','=','id')
-                ->select('food.id','food.name')
+                ->select('items.order_id','food.id','food.name')
+                ->where('order_id','=',$id)
                 ->get();
 
         #dd($food);
