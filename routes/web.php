@@ -45,10 +45,6 @@ Route::post('/user/store',[\App\Http\Controllers\CommentsController::class,'stor
 
 
 
-#後台根路由
-Route::get('/manage',[\App\Http\Controllers\ManageController::class,'index'])->name('manage.index');
-
-
 
 
 #Clean Blog樣板套用測試
@@ -64,9 +60,14 @@ Route::get('contact',[\App\Http\Controllers\PostsController::class,'contact'])->
 Route::prefix('manage')->group(function () {
     Route::get('/', [\App\Http\Controllers\ManageDashboardController::class, 'index'])->name('manage.dashboard.index');
 #菜單
+    Route::get('food',[\App\Http\Controllers\FoodController::class,'index'])->name('manage.food.index');
+    Route::get('food/create',[\App\Http\Controllers\FoodController::class,'create'])->name('manage.food.create');
+    Route::get('food/{id}/edit',[\App\Http\Controllers\FoodController::class,'edit'])->name('manage.food.edit');
 
 #點單
+    Route::get('order',[\App\Http\Controllers\OrderController::class,'index'])->name('manage.order.index');
+    Route::get('order/{id}/edit',[\App\Http\Controllers\OrderController::class,'edit'])->name('manage.order.edit');
 
 #評論
-    Route::get('posts', [\App\Http\Controllers\ManageCommentController::class, 'index'])->name('manage.comment.index');
+    Route::get('comment', [\App\Http\Controllers\ManageCommentController::class, 'index'])->name('manage.comment.index');
 });
