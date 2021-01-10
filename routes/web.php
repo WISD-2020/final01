@@ -35,7 +35,8 @@ Route::get('/order/item/{id}',[\App\Http\Controllers\OrderController::class,'sho
 
 #問題回報頁面
 Route::get('/user/question',[\App\Http\Controllers\CommentsController::class,'index'])->name('user.question');
-
+#問題送出
+Route::post('/user/store',[\App\Http\Controllers\CommentsController::class,'store'])->name('user.store');
 
 #後台根路由
 Route::get('/manage',[\App\Http\Controllers\ManageController::class,'index'])->name('manage.index');

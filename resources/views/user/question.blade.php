@@ -23,11 +23,21 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
+                <form action="/user/store" method="POST" role="form">
+                    @method('POST')
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{$name}}">
+
                 <div class="form-group">
                     <label for="title">問題名稱：</label>
                     <input name="title" value="" class="form-control" placeholder="請輸入您所遇到的問題">
                 </div>
                 <BR>
+                    <div class="form-group">
+                        <label for="date">發生時間：</label>
+                        <input type="datetime-local" name="date" value="" class="form-control">
+                    </div>
+                    <BR>
                 <div class="form-group">
                     <label for="content">問題內容敘述：</label>
                     <textarea id="content" name="content" class="form-control" rows="10"></textarea>
@@ -36,6 +46,7 @@
                 <div class="text-right">
                     <button type="submit" class="btn btn-success">提交</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>

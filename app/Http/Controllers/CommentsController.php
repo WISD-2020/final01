@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
@@ -14,7 +15,8 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        return view('user.question');
+        $name=Auth::user();
+        return view('user.question',$name);
     }
 
     /**
@@ -31,11 +33,12 @@ class CommentsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        Comments::create($request->all());
+        return redirect()->route('user.question');
     }
 
     /**
