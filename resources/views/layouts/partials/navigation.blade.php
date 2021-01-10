@@ -18,7 +18,7 @@
                     <a class="nav-link" href="{{route('order.history')}}">點餐紀錄</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.change')}}">會員修改資料</a>
+                    <a class="nav-link" href="{{route('user.change')}}">修改會員資料</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.question')}}">問題回報</a>
