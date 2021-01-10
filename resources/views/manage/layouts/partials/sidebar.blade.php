@@ -38,7 +38,13 @@
                 <a href="{{ route('manage.dashboard.index') }}"><i class="fa fa-fw fa-dashboard"></i> 主控台</a>
             </li>
             <li>
-                <a href="{{ route('manage.dashboard.index') }}"><i class="fa fa-fw fa-edit"></i> 菜單</a>
+                <a href="{{ route('manage.food.index') }}"><i class="fa fa-fw fa-edit"></i> 菜單</a>
+            </li>
+            <li>
+                <a href="{{ route('manage.order.index') }}"><i class="fa fa-fw fa-edit"></i> 訂單</a>
+            </li>
+            <li>
+                <a href="{{ route('manage.comment.index') }}"><i class="fa fa-fw fa-edit"></i> 評論</a>
             </li>
         </ul>
     </div>
