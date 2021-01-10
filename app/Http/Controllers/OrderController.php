@@ -2,24 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
+use App\Models\Item;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function index()
     {
-        $id=Auth::user()->id;
-        $orders=Order::find($id)->get();
-        $data=['orders'=>$orders];
-        #dd($data);
-        return view('order.history',$data);
+        if (Auth::check()) {
+            // 已登入
+
+            /** @var TYPE_NAME $name */
+            $name=Auth::user()->name;
+            $orders=Order::where('user_id',$name)->get();
+            $data=['orders'=>$orders];
+            #dd($data);
+            return view('order.history',$data);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -47,11 +59,27 @@ class OrderController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        if (Auth::check()) {
+            // 已登入
+
+            $items=DB::table('items')
+                ->join('food','food_id','=','id')
+                ->select('food.name','amount','total')
+                ->where('order_id','=',$id)
+                ->get();
+
+            $data=['items'=>$items];
+            #dd($data);
+            return view('order.item',$data);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
     }
 
     /**

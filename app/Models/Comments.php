@@ -9,6 +9,15 @@ class Comments extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'user_id',
+        'date',
+        'title',
+        'content',
+        'is_major',
+    ];
+
 
     public function user()
     {

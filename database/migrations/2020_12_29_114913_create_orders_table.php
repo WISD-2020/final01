@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->date('date');                       #日期
             $table->time('time');                       #時間
             $table->boolean('is_discount');             #是否有折扣
-            $table->integer('last_price')->nullable();  #折扣後總計
+            $table->integer('last_price');              #折扣後總計
             $table->boolean('us_check');                #使用者管理
             $table->boolean('ma_check');                #管理者確認
             $table->timestamps();
