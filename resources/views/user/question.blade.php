@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+    <header class="masthead" style="background-image: url('{{asset('img/contact-bg.jpg')}}')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -28,6 +28,12 @@
                     @csrf
                     <input type="hidden" name="user_id" value="{{$name}}">
 
+                    @if(session()->has('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+
                 <div class="form-group">
                     <label for="title">問題名稱：</label>
                     <input name="title" value="" class="form-control" placeholder="請輸入您所遇到的問題">
@@ -35,7 +41,7 @@
                 <BR>
                     <div class="form-group">
                         <label for="date">發生時間：</label>
-                        <input type="datetime-local" name="date" value="" class="form-control">
+                        <input type="date" name="date" value="" class="form-control">
                     </div>
                     <BR>
                 <div class="form-group">
