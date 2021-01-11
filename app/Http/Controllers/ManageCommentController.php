@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comments;
 use Illuminate\Http\Request;
 
 class ManageCommentController extends Controller
 {
     public function index()
     {
-        return view('manage.dashboard.index');
+        $comments = Comments::OrderBy('id','DESC')->get();
+        $data=['comments'=>$comments];
+        return view('manage.comment.index',$data);
     }
 }
