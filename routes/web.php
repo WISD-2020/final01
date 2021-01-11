@@ -17,11 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-
+#首頁
+Route::middleware(['auth:sanctum', 'verified'])->
+get('/dashboard', [\App\Http\Controllers\FoodController::class,'index'])->name('dashboard');
 
 #購物車頁面
 Route::get('/user/cart',[\App\Http\Controllers\CartController::class,'index'])->name('user.cart');
