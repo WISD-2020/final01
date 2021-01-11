@@ -11,12 +11,19 @@ class CommentsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function index()
     {
-        $name=Auth::user();
-        return view('user.question',$name);
+        if (Auth::check()) {
+            // 已登入
+            $name=Auth::user();
+            return view('user.question',$name);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -38,7 +45,7 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         Comments::create($request->all());
-        return redirect()->route('user.question');
+        return redirect()->route('user.question')->with('status','系統提示：已送出您的意見！');
     }
 
     /**
