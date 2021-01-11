@@ -30,6 +30,7 @@
                             <th width="20%" style="text-align: center">圖片</th>
                             <th width="15%" style="text-align: center">餐點名稱</th>
                             <th width="15%" style="text-align: center">價格</th>
+                            <th width="15%" style="text-align: center">訂購數量</th>
                             <th width="20%" style="text-align: center">加入購物車</th>
                         </tr>
                     </thead>
@@ -46,25 +47,20 @@
                         <td style="text-align: center;line-height:100px;">
                             {{$food->price}}
                         </td>
+                        <td style="text-align: center;vertical-align: middle">
+                            <form action="" method="post">
+                            <input type="text" name="amount" class="form-control" value="1">
+                            </form>
+                        </td>
                         <td style="text-align: center;line-height:100px;">
-                            {{--                                <a class="btn btn-sm btn-primary" href="{{route('order.item',$food -> id)}}">點餐明細</a>--}}
+                            <a class="btn btn-sm btn-primary" href="">送出</a>
                         </td>
                     </tr>
 
                     @endforeach
                     </tbody>
                 </table>
-
-
-
-                1
-                <hr>
-                2
-                <hr>
-                3
-                <hr>
-                4
-                <hr>
+                
                 <!-- Pager -->
                 <div class="clearfix">
                     <a class="btn btn-primary float-right" href="#">下一頁 &rarr;</a>
