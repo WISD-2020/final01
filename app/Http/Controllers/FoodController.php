@@ -18,7 +18,7 @@ class FoodController extends Controller
     public function index()
     {
         $name=Auth::user();
-        $foods=DB::table('food')->where('is_selling','=',1)->get();
+        $foods=DB::table('food')->where('is_selling','=',0)->get();
         $data=['foods'=>$foods,'name'=>$name];
         return view('dashboard',$data);
     }
@@ -41,9 +41,7 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        #dd($request);
-        Cart::create($request->all());
-        return redirect()->route('dashboard');
+        //
     }
 
     /**

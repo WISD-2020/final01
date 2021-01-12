@@ -12,7 +12,7 @@
                     <a class="nav-link" href="{{route('dashboard')}}">首頁</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.cart')}}">購物車</a>
+                    <a class="nav-link" href="{{route('cart.index')}}">購物車</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('order.history')}}">點餐紀錄</a>

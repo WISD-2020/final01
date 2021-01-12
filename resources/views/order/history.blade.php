@@ -23,8 +23,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                    @csrf
 
+                @csrf
+                @if(count($orders)>0)
 
 
                 <table class="table table-bordered table-hover">
@@ -58,6 +59,12 @@
                     @endforeach
                     </tbody>
                 </table>
+
+                @else
+                    <div style="text-align: center">
+                        您尚未訂購過任何餐點
+                    </div>
+                @endif
             </div>
         </div>
     </div>

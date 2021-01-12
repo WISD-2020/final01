@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -18,7 +19,17 @@ class CartController extends Controller
         if (Auth::check()) {
             // 已登入
 
-        return view('user.cart');
+            $name=Auth::user()->name;
+
+            $carts=DB::table('carts')
+            ->join('food','carts.food_id','=','food.id')
+            ->where('carts.user_id',$name)
+                ->select('carts.id','food.name','carts.amount','food.price')
+                ->get();
+
+            #dd($carts);
+            $data=['carts'=>$carts];
+            return view('cart.index',$data);
         }
         else
         {
@@ -40,11 +51,13 @@ class CartController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        #dd($request);
+        Cart::create($request->all());
+        return redirect()->route('dashboard')->with('status','系統提示：餐點已加入購物車');
     }
 
     /**
@@ -84,11 +97,23 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
-        //
+        Cart::destroy($id);
+        return redirect()->route('cart.index');
+    }
+
+    public function deliver(Request $request)
+    {
+        dd($request);
+        //orders
+
+
+
+
+        //items
     }
 }

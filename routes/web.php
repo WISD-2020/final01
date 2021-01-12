@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->
 get('/dashboard', [\App\Http\Controllers\FoodController::class,'index'])->name('dashboard');
 
 #購物車頁面
-Route::get('/user/cart',[\App\Http\Controllers\CartController::class,'index'])->name('user.cart');
+Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
 #瀏覽點餐紀錄頁面
 Route::get('/order/history',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');
 #點餐詳細頁面
@@ -36,7 +36,11 @@ Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->na
 
 
 #餐點加入購物車
-Route::post('/user/add',[\App\Http\Controllers\FoodController::class,'store'])->name('food.store');
+Route::post('/cart/store',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
+#從購物車刪除餐點
+Route::delete('/cart/destroy/{id}',[\App\Http\Controllers\CartController::class,'destroy'])->name('cart.destroy');
+#購物車送出訂單
+Route::post('/cart/deliver',[\App\Http\Controllers\CartController::class,'deliver'])->name('cart.deliver');
 #更新會員資料
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 #問題送出

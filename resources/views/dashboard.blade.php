@@ -25,13 +25,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <form action="/user/add" method="post" role="form">
+                <form action="/cart/store" method="post" role="form">
                     @method('POST')
                     @csrf
+
+                    @if(session()->has('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
                     <input type="hidden" name="user_id" value="{{$name->name}}">
                 <table class="table table-bordered table-hover">
                     <thead>
-                    @foreach($foods as $food)
+
                         <tr>
                             <th width="15%" style="text-align: center">餐點編號</th>
                             <th width="20%" style="text-align: center">圖片</th>
@@ -43,14 +50,13 @@
                     </thead>
                     <tbody>
 
-
+                    @foreach($foods as $food)
                     <tr>
                         <td style="text-align: center;line-height:100px;">
                             {{$food->id}}
-                            <input type="hidden" name="food_id" value="{{$food->id}}">
                         </td>
                         <td style="text-align: center;line-height:100px;">
-                            {{$food->image}}<img src="img/french-fries.jpg" width="100" height="100">
+                           <img src="{{$food->image}}" width="100" height="100">
                         </td>
                         <td style="text-align: center;line-height:100px;">
                             {{$food->name}}
@@ -59,12 +65,10 @@
                             {{$food->price}}
                         </td>
                         <td style="text-align: center;vertical-align: middle">
-                            <form action="" method="post">
-                            <input type="text" name="amount" class="form-control" value="1">
-                            </form>
+                            <input type="number" name="amount" min="1" max="99" value="1">
                         </td>
                         <td style="text-align: center;line-height:100px;">
-                            <button type="submit" class="btn btn-sm btn-primary">送出</button>
+                            <button type="submit" class="btn btn-sm btn-primary" name="food_id" value="{{$food->id}}">送出</button>
                         </td>
                     </tr>
 
