@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+    <header class="masthead" style="background-image: url('{{asset('img/about-bg.jpg')}}')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -46,13 +46,13 @@
                                     {{$item->name}}
                                 </td>
                                 <td style="text-align: center">
-                                    ${{$item->total}}
+                                    ${{$item->price}}
                                 </td>
                                 <td style="text-align: center">
                                     {{$item->amount}}
                                 </td>
                                 <td style="text-align: center">
-                                    ${{($item->amount)*($item->total)}}
+                                    ${{($item->amount)*($item->price)}}
                                 </td>
                             </tr>
 
@@ -60,6 +60,9 @@
 
                     </tbody>
                 </table>
+                <div style="text-align:right">
+                    <b>總計：<u>${{$total}}</u></b>
+                </div>
                 <div align="center">
                 <a class="btn btn-success" href="{{route('order.history')}}">返回</a>
                 </div>
