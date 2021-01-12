@@ -69,9 +69,12 @@ Route::prefix('manage')->group(function () {
 #點單
     Route::get('order',[\App\Http\Controllers\ManageOrderController::class,'index'])->name('manage.order.index');
     Route::get('order/{id}',[\App\Http\Controllers\ManageOrderController::class,'edit'])->name('manage.order.edit');
-    Route::delete('order/{id}',[\App\Http\Controllers\ManageOrderController::class,'destroy'])->name('manage.order.delete');
+    Route::delete('order/{id}',[\App\Http\Controllers\ManageOrderController::class,'destroy'])->name('manage.order.destroy');
 #評論
     Route::get('comment', [\App\Http\Controllers\ManageCommentController::class, 'index'])->name('manage.comment.index');
 #購物車
     Route::get('cart',[\App\Http\Controllers\ManageCartController::class,'index'])->name('manage.cart.index');
+#明細
+    Route::get('item',[\App\Http\Controllers\ManageItemController::class,'index'])->name('manage.item.index');
+
 });
