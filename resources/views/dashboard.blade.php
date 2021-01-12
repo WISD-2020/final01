@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <form action="/cart/store" method="post" role="form">
+                <form action="/food/create" method="post" role="form">
                     @method('POST')
                     @csrf
 
@@ -35,17 +35,17 @@
                         </div>
                     @endif
 
+                    <input type="hidden" name="amount" value="1">
                     <input type="hidden" name="user_id" value="{{$name->name}}">
                 <table class="table table-bordered table-hover">
                     <thead>
 
                         <tr>
-                            <th width="10%" style="text-align: center">餐點編號</th>
+                            <th width="15%" style="text-align: center">餐點編號</th>
                             <th width="20%" style="text-align: center">圖片</th>
-                            <th width="20%" style="text-align: center">餐點名稱</th>
-                            <th width="10%" style="text-align: center">價格</th>
-                            <th width="20%" style="text-align: center">訂購數量</th>
-                            <th width="20%" style="text-align: center">加入購物車</th>
+                            <th width="30%" style="text-align: center">餐點名稱</th>
+                            <th width="15%" style="text-align: center">價格</th>
+                            <th width="20%" style="text-align: center">操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,11 +64,8 @@
                         <td style="text-align: center;line-height:100px;">
                             ${{$food->price}}
                         </td>
-                        <td style="text-align: center;vertical-align: middle">
-                            <input style="width: 80%" type="number" name="amount" min="1" max="99" value="1">
-                        </td>
                         <td style="text-align: center;line-height:100px;">
-                            <button type="submit" class="btn btn-sm btn-primary" name="food_id" value="{{$food->id}}">送出</button>
+                            <a class="btn btn-sm btn-primary" href="{{route('food.show',$food->id)}}">購買</a>
                         </td>
                     </tr>
 

@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->
 get('/dashboard', [\App\Http\Controllers\FoodController::class,'index'])->name('dashboard');
 
+#餐點詳細
+Route::get('/food/show/{id}',[\App\Http\Controllers\FoodController::class,'show'])->name('food.show');
 #購物車頁面
 Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
 #瀏覽點餐紀錄頁面

@@ -26,7 +26,8 @@ class FoodController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|void
      */
     public function create()
     {
@@ -47,12 +48,17 @@ class FoodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Food  $food
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Food $food
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Food $food)
+    public function show(Food $food,$id)
     {
-        //
+        /** @var TYPE_NAME $id */
+        $name=Auth::user()->name;
+        $food=Food::where('id',$id)->get();
+        $data=['food'=>$food,'name'=>$name];
+        return view('food.show',$data);
     }
 
     /**
