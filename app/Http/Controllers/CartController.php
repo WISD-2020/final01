@@ -24,7 +24,7 @@ class CartController extends Controller
             $carts=DB::table('carts')
             ->join('food','carts.food_id','=','food.id')
             ->where('carts.user_id',$name)
-                ->select('food.id','food.name','carts.amount','food.price')
+                ->select('carts.id','food.name','carts.amount','food.price')
                 ->get();
 
             #dd($carts);
@@ -51,11 +51,13 @@ class CartController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        #dd($request);
+        Cart::create($request->all());
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -95,11 +97,12 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
-        //
+        Cart::destroy($id);
+        return redirect()->route('user.cart');
     }
 }

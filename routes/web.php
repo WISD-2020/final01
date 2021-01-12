@@ -36,7 +36,9 @@ Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->na
 
 
 #餐點加入購物車
-Route::post('/user/add',[\App\Http\Controllers\FoodController::class,'store'])->name('food.store');
+Route::post('/user/add',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
+#從購物車刪除餐點
+Route::delete('/user/delete/{id}',[\App\Http\Controllers\CartController::class,'destroy'])->name('cart.destroy');
 #更新會員資料
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 #問題送出
