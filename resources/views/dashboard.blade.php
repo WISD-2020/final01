@@ -23,10 +23,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
+                <form action="/user/add" method="post" role="form">
+                    @method('POST')
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{$name->name}}">
                 <table class="table table-bordered table-hover">
                     <thead>
                     @foreach($foods as $food)
                         <tr>
+                            <th width="15%" style="text-align: center">餐點編號</th>
                             <th width="20%" style="text-align: center">圖片</th>
                             <th width="15%" style="text-align: center">餐點名稱</th>
                             <th width="15%" style="text-align: center">價格</th>
@@ -38,6 +43,10 @@
 
 
                     <tr>
+                        <td style="text-align: center;line-height:100px;">
+                            {{$food->id}}
+                            <input type="hidden" name="food_id" value="{{$food->id}}">
+                        </td>
                         <td style="text-align: center;line-height:100px;">
                             {{$food->image}}<img src="img/french-fries.jpg" width="100" height="100">
                         </td>
@@ -53,18 +62,19 @@
                             </form>
                         </td>
                         <td style="text-align: center;line-height:100px;">
-                            <a class="btn btn-sm btn-primary" href="">送出</a>
+                            <button type="submit" class="btn btn-sm btn-primary">送出</button>
                         </td>
                     </tr>
 
                     @endforeach
                     </tbody>
                 </table>
-                
+
                 <!-- Pager -->
                 <div class="clearfix">
                     <a class="btn btn-primary float-right" href="#">下一頁 &rarr;</a>
                 </div>
+                </form>
             </div>
         </div>
     </div>

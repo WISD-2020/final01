@@ -41,6 +41,7 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
+        #dd($request);
         Cart::create($request->all());
         return redirect()->route('dashboard');
     }

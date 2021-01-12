@@ -9,7 +9,14 @@ class Cart extends Model
 {
     use HasFactory;
 
-    public function foods()
+    protected $fillable = [
+        'id',
+        'user_id',
+        'food_id',
+        'amount'
+    ];
+
+    public function foods(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Food::class);
     }
