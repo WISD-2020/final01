@@ -1,59 +1,72 @@
-@extends('admin.layouts.master')
+@extends('manage.layouts.master')
 
-@section('title', '文章管理')
+@section('title', '菜單')
 
 @section('content')
-<!-- Page Heading -->
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">
-            文章管理 <small>所有文章列表</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li class="active">
-                <i class="fa fa-edit"></i> 文章管理
-            </li>
-        </ol>
-    </div>
-</div>
-<!-- /.row -->
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                林的菜單<small>所有菜單</small>
+            </h1>
+            <ol class="breadcrumb">
 
-<div class="row" style="margin-bottom: 20px; text-align: right">
-    <div class="col-lg-12">
-        <a href="{{ route('admin.posts.create') }}" class="btn btn-success">建立新文章</a>
-    </div>
-</div>
-<!-- /.row -->
-
-<div class="row">
-    <div class="col-lg-12">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th width="30" style="text-align: center">#</th>
-                        <th>標題</th>
-                        <th width="70" style="text-align: center">精選？</th>
-                        <th width="100" style="text-align: center">功能</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach(range(1, 20) as $id)
-                    <tr>
-                        <td style="text-align: center">{{ $id }}</td>
-                        <td>文章標題</td>
-                        <td style="text-align: center">V</td>
-                        <td>
-                            <a href="{{ route('admin.posts.edit', $id) }}">編輯</a>
-                            /
-                            <a href="#">刪除</a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+            </ol>
         </div>
     </div>
-</div>
-<!-- /.row -->
+    <!-- /.row -->
+
+    <!-- /.row -->
+    <div class="col-lg-12">
+        <a href="{{ route('manage.food.create') }}" class="btn btn-success">建立餐點</a>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th width="30" style="text-align: center">餐點號碼</th>
+                        <th width="70">餐點名稱</th>
+                        <th width="70" style="text-align: center">價格</th>
+                        <th  style="text-align: center">是否缺貨</th>
+                        <th  style="text-align: center">是否為熱門餐點</th>
+                        <th>動作</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($foods as $food)
+                        <tr>
+                            <td style="text-align: center">{{ $food->id }}</td>
+                            <td style="text-align: center">{{ $food->name }}</td>
+                            <td style="text-align: center">{{ $food->price }}</td>
+                            <td style="text-align: center">{{ ($food->is_selling)? 'V':'X' }}</td>
+                            <td style="text-align: center">{{ ($food->is_hot)? 'V':'X' }}</td>
+
+
+
+                            <td>
+
+                                <a href="{{ route('manage.food.edit', $food->id) }}" class="btn btn-primary">編輯</a>
+
+                                <form action="{{route('manage.food.destroy',$food->id)}}" method="POST"style=" display: inline">
+
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+
+                                    <button type="submit" class="btn btn-danger">刪除</button>
+                                </form>
+
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
 @endsection

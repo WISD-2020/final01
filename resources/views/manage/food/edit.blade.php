@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('manage.layouts.master')
 
 @section('title', '編輯文章')
 
@@ -7,11 +7,11 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            編輯文章 <small>編輯文章內容</small>
+            編輯餐點 <small>編輯餐點內容</small>
         </h1>
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-edit"></i> 文章管理
+                <i class="fa fa-edit"></i> 餐點管理
             </li>
         </ol>
     </div>
@@ -33,8 +33,8 @@
         <form role="form">
 
             <div class="form-group">
-                <label>標題：</label>
-                <input class="form-control" placeholder="請輸入文章標題">
+                <label>餐點名稱</label>
+                <input class="form-control" placeholder="請輸入餐點名稱">
             </div>
 
             <div class="form-group">
