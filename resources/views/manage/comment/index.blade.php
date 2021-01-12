@@ -27,6 +27,7 @@
                         <th width="30" style="text-align: center">問題號碼</th>
                         <th width="70">客戶名</th>
                         <th width="70" style="text-align: center">回報時間</th>
+                        <th  style="text-align: center">標題</th>
                         <th  style="text-align: center">報怨內容</th>
 
 
@@ -39,6 +40,7 @@
                             <td style="text-align: center">{{ $comment->id }}</td>
                             <td style="text-align: center">{{ $comment->user_id }}</td>
                             <td style="text-align: center">{{ $comment->date }}</td>
+                            <td style="text-align: center">{{ $comment->title }}</td>
                             <td style="text-align: center">{{ $comment->content }}</td>
 
 
