@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('img/home-bg.jpg')">
         <div class="overlay"></div>
@@ -38,5 +40,5 @@
             </div>
         </div>
     </div>
-
+    <a href="{{route('manage.dashboard.index')}}" class="ml-1 underline">重新整理</a>
 @endsection
