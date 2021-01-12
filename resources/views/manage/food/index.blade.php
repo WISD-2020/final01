@@ -45,7 +45,9 @@
                             <td style="text-align: center">{{ $food->price }}</td>
                             <td style="text-align: center">{{ ($food->is_selling)? 'V':'X' }}</td>
                             <td style="text-align: center">{{ ($food->is_hot)? 'V':'X' }}</td>
-                            <td style="text-align: center">{{$food->image}}</td>
+                            <td style="text-align: center">
+                                <img src=" ../{{$food->image}}" width="50" height="50"/>
+                            </td>
 
 
 
