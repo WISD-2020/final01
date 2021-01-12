@@ -33,7 +33,7 @@ class CartController extends Controller
 
                 foreach ($carts as $cart)
                 {
-                    $total = $cart->price+$total;
+                    $total = ($cart->price)*($cart->amount)+$total;
                 }
 
             #dd($total);
