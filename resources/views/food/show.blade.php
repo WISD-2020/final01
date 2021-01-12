@@ -46,7 +46,7 @@
                                     ${{$food->price}}
                                 </td>
                                 <td style="text-align: center;vertical-align: middle;">
-                                    <input style="width: 50%;" type="number" name="amount" value="1">
+                                    <input style="width: 50%;" type="number" name="amount" min="1" max="99" value="1">
                                 </td>
                             </tr>
                         @endforeach
