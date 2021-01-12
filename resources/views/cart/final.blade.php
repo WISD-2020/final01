@@ -24,7 +24,9 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
 
-
+                <form action="/cart/clear" method="post" role="form">
+                    @method('POST')
+                    @csrf
 
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -79,8 +81,9 @@
                     </thead>
                 </table>
                         <div style="text-align:center">
-                            <a class="btn btn-sm btn-primary" href="{{route('dashboard')}}">送出訂單</a>
+                            <a class="btn btn-sm btn-primary" href="{{route('cart.clear')}}">送出訂單</a>
                         </div>
+                </form>
             </div>
         </div>
     </div>
