@@ -30,9 +30,11 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th width="40%" style="text-align: center">餐點名稱</th>
-                        <th width="20%" style="text-align: center">數量</th>
-                        <th width="30%" style="text-align: center">價格</th>
+                        <th width="20%" style="text-align: center">餐點名稱</th>
+                        <th width="20%" style="text-align: center">價格</th>
+                        <th width="10%" style="text-align: center">數量</th>
+                        <th width="20%" style="text-align: center">小計</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -44,10 +46,13 @@
                                     {{$item->name}}
                                 </td>
                                 <td style="text-align: center">
+                                    ${{$item->total}}
+                                </td>
+                                <td style="text-align: center">
                                     {{$item->amount}}
                                 </td>
                                 <td style="text-align: center">
-                                    {{$item->total}}
+                                    ${{($item->amount)*($item->total)}}
                                 </td>
                             </tr>
 

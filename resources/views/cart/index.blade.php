@@ -44,13 +44,13 @@
                                         {{$cart->name}}
                                     </td>
                                     <td style="text-align: center;line-height:100px;">
-                                        {{$cart->price}}
+                                        ${{$cart->price}}
                                     </td>
                                     <td style="text-align: center;vertical-align: middle">
                                         {{$cart->amount}}
                                     </td>
                                     <td style="text-align: center;vertical-align: middle">
-                                        {{($cart->amount)*($cart->price)}}
+                                        ${{($cart->amount)*($cart->price)}}
                                     </td>
                                     <td style="text-align: center;vertical-align: middle">
                                         <form action="/cart/destroy/{{$cart->id}}" method="POST"style=" display: inline">
@@ -65,7 +65,9 @@
 
                             </tbody>
                         </table>
-
+                    <div style="text-align:right">
+                        <b>總計：<u>${{$total}}</u></b>
+                    </div>
                         <div style="text-align:center">
                             <button type="submit" class="btn btn-sm btn-primary" name="food_id" value="">結帳</button>
                         </div>

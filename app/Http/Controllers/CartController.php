@@ -19,16 +19,25 @@ class CartController extends Controller
         if (Auth::check()) {
             // 已登入
 
-            $name=Auth::user()->name;
+            $name = Auth::user()->name;
 
-            $carts=DB::table('carts')
-            ->join('food','carts.food_id','=','food.id')
-            ->where('carts.user_id',$name)
-                ->select('carts.id','food.name','carts.amount','food.price')
+            $carts = DB::table('carts')
+                ->join('food', 'carts.food_id', '=', 'food.id')
+                ->where('carts.user_id', $name)
+                ->select('carts.id', 'food.name', 'carts.amount', 'food.price')
                 ->get();
 
-            #dd($carts);
-            $data=['carts'=>$carts];
+            ['carts'=>$carts];
+
+            $total=0;
+
+                foreach ($carts as $cart)
+                {
+                    $total = $cart->price+$total;
+                }
+
+            #dd($total);
+            $data=['carts'=>$carts,'total'=>$total];
             return view('cart.index',$data);
         }
         else
