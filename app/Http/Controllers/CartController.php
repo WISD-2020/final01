@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Item;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CartController extends Controller
 {
@@ -139,5 +142,49 @@ class CartController extends Controller
 
         $data=['name'=>$name,'carts'=>$carts,'total'=>$total,'user'=>$user];
         return view('cart.final',$data);
+    }
+
+    public function clear()
+    {
+        $name=Auth::user()->name;
+
+        #dd($carts);
+
+        Order::create([
+            'user_id'=>$name,
+            'date'=>Carbon::now()->toDateString(),
+            'time'=>Carbon::now(),
+            'is_discount'=>0,
+            'us_check'=>0,
+            'ma_check'=>0,
+        ]);
+
+        $order_id=DB::table('orders')
+            ->where('user_id',$name)
+            ->orderBy('time','desc')
+            ->select('id')
+            ->first();
+
+        $carts=DB::table('carts')
+            ->join('food','carts.food_id','=','food.id')
+            ->select('food.id','food.price','amount')
+            ->where('carts.user_id',$name)
+            ->get();
+
+        ['carts'=>$carts];
+
+        foreach ($carts as $cart)
+        {
+        Item::create([
+            'order_id'=>$order_id->id,
+            'food_id'=>$cart->id,
+            'amount'=>$cart->amount,
+            'total'=>$cart->price,
+        ]);
+        }
+
+        Cart::where('user_id',$name)->delete();
+
+        return redirect()->route('order.history')->with('status','系統提示：訂單已送出！');
     }
 }

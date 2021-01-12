@@ -21,7 +21,6 @@ class OrderController extends Controller
         if (Auth::check()) {
             // 已登入
 
-            /** @var TYPE_NAME $name */
             $name=Auth::user()->name;
             $orders=Order::where('user_id',$name)->get();
             $data=['orders'=>$orders];
@@ -66,13 +65,33 @@ class OrderController extends Controller
         if (Auth::check()) {
             // 已登入
 
+            $name=Auth::user()->name;
+
+            $for_total = DB::table('items')
+                ->join('food', 'items.food_id', '=', 'food.id')
+                ->join('orders','items.order_id','=','orders.id')
+                ->where('orders.user_id', $name)
+                ->where('orders.id',$id)
+                ->select('items.order_id','food.name','items.amount','food.price')
+                ->get();
+
+            #dd($for_total);
+            ['for_total'=>$for_total];
+
+            $total=0;
+
+            foreach ($for_total as $thing)
+            {
+                $total = ($thing->price)*($thing->amount)+$total;
+            }
+
             $items=DB::table('items')
                 ->join('food','food_id','=','id')
-                ->select('food.name','amount','total')
+                ->select('food.name','amount','food.price')
                 ->where('order_id','=',$id)
                 ->get();
 
-            $data=['items'=>$items];
+            $data=['items'=>$items,'total'=>$total];
             #dd($data);
             return view('order.item',$data);
         }
