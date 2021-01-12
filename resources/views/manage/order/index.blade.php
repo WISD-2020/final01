@@ -46,7 +46,7 @@
 
                             <td>
 
-                                <a href="{{ route('manage.order.edit', $order->id) }}" class="btn btn-primary">編輯</a>
+                                <a href="{{ route('manage.item.index', $order->id) }}" class="btn btn-primary">明細</a>
 
                                 <form action="{{route('manage.order.destroy',$order->id)}}" method="POST"style=" display: inline">
 

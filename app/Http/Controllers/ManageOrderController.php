@@ -33,6 +33,6 @@ class ManageOrderController extends Controller
     public function destroy($id)
     {
         Order::destroy($id);
-        return redirect()->route('manage.order.index');
+        return redirect()->route('manage.order.destroy');
     }
 }
