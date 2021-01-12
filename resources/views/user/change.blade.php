@@ -26,6 +26,12 @@
                 <form action="/user/{{$user->id}}" method="POST" role="form">
                     @method('PATCH')
                     @csrf
+                    
+                        @if(session()->has('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
                     <div class="form-group">
                         <label for="name">會員名稱：</label><br>

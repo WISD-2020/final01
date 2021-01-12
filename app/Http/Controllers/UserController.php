@@ -32,7 +32,7 @@ class UserController extends Controller
 
             $info = User::find($name);
             $info->update($request->all());
-            return redirect()->route('user.change');
+            return redirect()->route('user.change')->with('status','系統提示：會員資料已修改！');
         }
         else
         {
