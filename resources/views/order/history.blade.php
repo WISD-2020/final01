@@ -27,6 +27,12 @@
                 @csrf
                 @if(count($orders)>0)
 
+                    @if(session()->has('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
 
                 <table class="table table-bordered table-hover">
                     <thead>
