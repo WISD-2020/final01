@@ -78,7 +78,7 @@
                     </form>
                 @else
                     <div style="text-align: center">
-                        您還未訂購任何餐點
+                        購物車裡空空如也
                     </div>
                 @endif
             </div>
