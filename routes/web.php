@@ -60,13 +60,16 @@ Route::get('contact',[\App\Http\Controllers\PostsController::class,'contact'])->
 Route::prefix('manage')->group(function () {
     Route::get('/', [\App\Http\Controllers\ManageDashboardController::class, 'index'])->name('manage.dashboard.index');
 #菜單
-    Route::get('food',[\App\Http\Controllers\FoodController::class,'index'])->name('manage.food.index');
-    Route::get('food/create',[\App\Http\Controllers\FoodController::class,'create'])->name('manage.food.create');
-    Route::get('food/{id}/edit',[\App\Http\Controllers\FoodController::class,'edit'])->name('manage.food.edit');
+    Route::get('food',[\App\Http\Controllers\ManageFoodController::class,'index'])->name('manage.food.index');
+    Route::get('food/create',[\App\Http\Controllers\ManageFoodController::class,'create'])->name('manage.food.create');
+    Route::get('food/{id}/edit',[\App\Http\Controllers\ManageFoodController::class,'edit'])->name('manage.food.edit');
+    Route::patch('food/{id}',[\App\Http\Controllers\ManageFoodController::class,'update'])->name('manage.food.update');
+    Route::delete('food/{id}',[\App\Http\Controllers\ManageFoodController::class,'destroy'])->name('manage.food.destroy');
+    Route::post('food/store',[\App\Http\Controllers\ManageFoodController::class,'store'])->name('manage.food.store');
 
 #點單
     Route::get('order',[\App\Http\Controllers\OrderController::class,'index'])->name('manage.order.index');
-    Route::get('order/{id}/edit',[\App\Http\Controllers\OrderController::class,'edit'])->name('manage.order.edit');
+    Route::patch('order/{id}',[\App\Http\Controllers\OrderController::class,'edit'])->name('manage.order.edit');
 
 #評論
     Route::get('comment', [\App\Http\Controllers\ManageCommentController::class, 'index'])->name('manage.comment.index');
