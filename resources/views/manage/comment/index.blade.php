@@ -24,7 +24,7 @@
                     <thead>
                     <tr>
                         <th width="10%" style="text-align: center">問題號碼</th>
-                        <th width="10%" style="text-align: center">客戶名</th>
+                        <th width="10%" style="text-align: center">顧客名稱</th>
                         <th width="10%" style="text-align: center">回報時間</th>
                         <th width="20%" style="text-align: center">標題</th>
                         <th width="50%" style="text-align: center">報怨內容</th>
