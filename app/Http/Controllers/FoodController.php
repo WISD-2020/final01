@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Food;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FoodController extends Controller
@@ -15,8 +17,9 @@ class FoodController extends Controller
      */
     public function index()
     {
+        $name=Auth::user();
         $foods=DB::table('food')->where('is_selling','=',1)->get();
-        $data=['foods'=>$foods];
+        $data=['foods'=>$foods,'name'=>$name];
         return view('dashboard',$data);
     }
 
@@ -34,11 +37,12 @@ class FoodController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        Cart::create($request->all());
+        return redirect()->route('dashboard');
     }
 
     /**

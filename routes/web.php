@@ -35,7 +35,8 @@ Route::get('/user/question',[\App\Http\Controllers\CommentsController::class,'in
 Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');
 
 
-
+#餐點加入購物車
+Route::post('/user/add',[\App\Http\Controllers\FoodController::class,'store'])->name('food.store');
 #更新會員資料
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 #問題送出
