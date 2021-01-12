@@ -32,7 +32,7 @@ class UserController extends Controller
 
             $info = User::find($name);
             $info->update($request->all());
-            return redirect()->route('dashboard');
+            return redirect()->route('user.change');
         }
         else
         {
