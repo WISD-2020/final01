@@ -31,7 +31,7 @@
                             <tr>
                                 <th width="20%" style="text-align: center">餐點名稱</th>
                                 <th width="10%" style="text-align: center">價格</th>
-                                <th width="10%" style="text-align: center">訂購數量</th>
+                                <th width="10%" style="text-align: center">數量</th>
                                 <th width="10%" style="text-align: center">小計</th>
                                 <th width="15%" style="text-align: center">刪除餐點</th>
                             </tr>
@@ -65,17 +65,11 @@
 
                             </tbody>
                         </table>
-                <form action="/cart/deliver" method="post" role="form">
-                    @method('POST')
-                    @csrf
+
                         <div style="text-align:center">
-                            <button type="submit" class="btn btn-sm btn-primary" name="food_id" value="">送出訂單</button>
+                            <button type="submit" class="btn btn-sm btn-primary" name="food_id" value="">結帳</button>
                         </div>
 
-
-
-                        <!-- Pager -->
-                    </form>
                 @else
                     <div style="text-align: center">
                         購物車裡空空如也
