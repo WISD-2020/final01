@@ -33,7 +33,7 @@
                                 <th width="10%" style="text-align: center">價格</th>
                                 <th width="10%" style="text-align: center">數量</th>
                                 <th width="10%" style="text-align: center">小計</th>
-                                <th width="15%" style="text-align: center">刪除餐點</th>
+                                <th width="15%" style="text-align: center">操作</th>
                             </tr>
                             </thead>
                             <tbody>
