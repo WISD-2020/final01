@@ -29,7 +29,7 @@ class CartController extends Controller
 
             #dd($carts);
             $data=['carts'=>$carts];
-            return view('user.cart',$data);
+            return view('cart.index',$data);
         }
         else
         {
@@ -103,6 +103,17 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::destroy($id);
-        return redirect()->route('user.cart');
+        return redirect()->route('cart.index');
+    }
+
+    public function deliver(Request $request)
+    {
+        dd($request);
+        //orders
+
+
+
+
+        //items
     }
 }

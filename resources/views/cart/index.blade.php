@@ -53,7 +53,7 @@
                                         {{($cart->amount)*($cart->price)}}
                                     </td>
                                     <td style="text-align: center;vertical-align: middle">
-                                        <form action="/user/delete/{{$cart->id}}" method="POST"style=" display: inline">
+                                        <form action="/cart/destroy/{{$cart->id}}" method="POST"style=" display: inline">
                                             @method('DELETE')
                                             @csrf
 
@@ -65,7 +65,7 @@
 
                             </tbody>
                         </table>
-                <form action="/user/add" method="post" role="form">
+                <form action="/cart/deliver" method="post" role="form">
                     @method('POST')
                     @csrf
                         <div style="text-align:center">

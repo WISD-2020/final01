@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <form action="/user/add" method="post" role="form">
+                <form action="/cart/store" method="post" role="form">
                     @method('POST')
                     @csrf
                     <input type="hidden" name="user_id" value="{{$name->name}}">
