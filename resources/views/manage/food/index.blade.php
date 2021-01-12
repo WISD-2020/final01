@@ -32,8 +32,8 @@
                         <th width="70" style="text-align: center">價格</th>
                         <th  style="text-align: center">是否缺貨</th>
                         <th  style="text-align: center">是否為熱門餐點</th>
+                        <th>圖片</th>
                         <th>動作</th>
-
 
                     </tr>
                     </thead>
@@ -45,6 +45,7 @@
                             <td style="text-align: center">{{ $food->price }}</td>
                             <td style="text-align: center">{{ ($food->is_selling)? 'V':'X' }}</td>
                             <td style="text-align: center">{{ ($food->is_hot)? 'V':'X' }}</td>
+                            <td style="text-align: center">{{$food->image}}</td>
 
 
 
@@ -57,7 +58,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
-                                    <button type="submit" class="btn btn-danger">刪除</button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('是否確認刪除')">刪除</button>
                                 </form>
 
                             </td>

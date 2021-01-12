@@ -71,9 +71,11 @@ Route::prefix('manage')->group(function () {
     Route::post('food/store',[\App\Http\Controllers\ManageFoodController::class,'store'])->name('manage.food.store');
 
 #點單
-    Route::get('order',[\App\Http\Controllers\OrderController::class,'index'])->name('manage.order.index');
-    Route::patch('order/{id}',[\App\Http\Controllers\OrderController::class,'edit'])->name('manage.order.edit');
-
+    Route::get('order',[\App\Http\Controllers\ManageOrderController::class,'index'])->name('manage.order.index');
+    Route::get('order/{id}',[\App\Http\Controllers\ManageOrderController::class,'edit'])->name('manage.order.edit');
+    Route::delete('order/{id}',[\App\Http\Controllers\ManageOrderController::class,'destroy'])->name('manage.order.delete');
 #評論
     Route::get('comment', [\App\Http\Controllers\ManageCommentController::class, 'index'])->name('manage.comment.index');
+#購物車
+    Route::get('cart',[\App\Http\Controllers\ManageCartController::class,'index'])->name('manage.cart.index');
 });

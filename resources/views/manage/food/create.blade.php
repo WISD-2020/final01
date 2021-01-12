@@ -54,7 +54,7 @@
             </div>
 
             <div class="form-group">
-                <label for="img">餐點圖片</label>
+                <label for="image">餐點圖片</label>
                 <input type = "file" name="image" class="form-control" >
             </div>
 
