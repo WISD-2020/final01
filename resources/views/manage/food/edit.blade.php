@@ -1,66 +1,79 @@
 @extends('manage.layouts.master')
 
-@section('title', '編輯文章')
+@section('title', '修改餐點')
 
 @section('content')
-<!-- Page Heading -->
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">
-            編輯餐點 <small>編輯餐點內容</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li class="active">
-                <i class="fa fa-edit"></i> 餐點管理
-            </li>
-        </ol>
-    </div>
-</div>
-<!-- /.row -->
-
-<div class="row">
-    <div class="col-lg-12">
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <i class="fa fa-info-circle"></i>  <strong>警告！</strong> 請修正表單錯誤：
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                修改餐點 <small>請輸入餐點名稱</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-edit"></i> 餐點管理
+                </li>
+            </ol>
         </div>
     </div>
-</div>
-<!-- /.row -->
+    <!-- /.row -->
 
-<div class="row">
-    <div class="col-lg-12">
-        <form role="form">
-
-            <div class="form-group">
-                <label>餐點名稱</label>
-                <input class="form-control" placeholder="請輸入餐點名稱">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-info-circle"></i>  <strong>警告！</strong> 請修正表單錯誤：
             </div>
-
-            <div class="form-group">
-                <label>內容：</label>
-                <textarea class="form-control" rows="10"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>精選？</label>
-                <select class="form-control">
-                    <option value="0">否</option>
-                    <option value="1">是</option>
-                </select>
-            </div>
-
-            <div class="text-right">
-                <button type="submit" class="btn btn-success">更新</button>
-            </div>
-
-        </form>
-
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-
+        </div>
     </div>
-</div>
-<!-- /.row -->
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <form  action="/manage/food/{{$food->id}}" method="POST" role="form">
+                @method('PATCH')
+                @csrf
+
+                <div class="form-group">
+                    <label for="name">餐點名稱</label>
+                    <input name="name" class="form-control" placeholder="請輸入餐點名稱" value="{{old('name',$food->name)}}">
+                </div>
+
+                <div class="form-group">
+                    <label>價格</label>
+                    <input name="price" class="form-control" placeholder="請輸入價格" value="{{old('price',$food->price)}}">
+                </div>
+
+                <div class="form-group">
+                    <label>是否缺貨？</label>
+                    <select name="is_selling" class="form-control" value="{{old('is_selling',$food->is_selling)}}">
+                        <option  value="0">否</option>
+                        <option  value="1">是</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>是否熱門？</label>
+                    <select name="is_hot" class="form-control" value="{{old('is_hot',$food->is_hot)}}">
+                        <option  value="0">否</option>
+                        <option  value="1">是</option>
+                    </select>
+                </div>
+
+
+
+
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">修改</button>
+                </div>
+            </form>
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+
+        </div>
+    </div>
+    <!-- /.row -->
 @endsection
