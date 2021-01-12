@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -18,7 +19,17 @@ class CartController extends Controller
         if (Auth::check()) {
             // 已登入
 
-        return view('user.cart');
+            $name=Auth::user()->name;
+
+            $carts=DB::table('carts')
+            ->join('food','carts.food_id','=','food.id')
+            ->where('carts.user_id',$name)
+                ->select('food.id','food.name','carts.amount','food.price')
+                ->get();
+
+            #dd($carts);
+            $data=['carts'=>$carts];
+            return view('user.cart',$data);
         }
         else
         {
