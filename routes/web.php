@@ -45,6 +45,8 @@ Route::post('/cart/store',[\App\Http\Controllers\CartController::class,'store'])
 Route::delete('/cart/destroy/{id}',[\App\Http\Controllers\CartController::class,'destroy'])->name('cart.destroy');
 #購物車送出訂單
 Route::post('/cart/deliver',[\App\Http\Controllers\CartController::class,'deliver'])->name('cart.deliver');
+#送出訂單
+Route::get('/cart/clear',[\App\Http\Controllers\CartController::class,'clear'])->name('cart.clear');
 #更新會員資料
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 #問題送出
@@ -54,11 +56,6 @@ Route::post('/user/store',[\App\Http\Controllers\CommentsController::class,'stor
 
 
 
-#Clean Blog樣板套用測試
-Route::get('posts',[\App\Http\Controllers\PostsController::class,'index'])->name('posts.index');
-Route::get('post',[\App\Http\Controllers\PostsController::class,'show'])->name('posts.show');
-Route::get('about',[\App\Http\Controllers\PostsController::class,'about'])->name('posts.about');
-Route::get('contact',[\App\Http\Controllers\PostsController::class,'contact'])->name('posts.contact');
 
 
 
