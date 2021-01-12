@@ -57,7 +57,7 @@ class CartController extends Controller
     {
         #dd($request);
         Cart::create($request->all());
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('status','系統提示：餐點已加入購物車');
     }
 
     /**

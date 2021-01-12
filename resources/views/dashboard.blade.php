@@ -28,6 +28,13 @@
                 <form action="/cart/store" method="post" role="form">
                     @method('POST')
                     @csrf
+
+                    @if(session()->has('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
                     <input type="hidden" name="user_id" value="{{$name->name}}">
                 <table class="table table-bordered table-hover">
                     <thead>
