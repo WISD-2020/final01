@@ -10,7 +10,7 @@ class ManageFoodController extends Controller
     public function index()
     {
         $food = Food::OrderBy('id','DESC')->get();
-        $data=['food'=>$food];
+        $data=['foods'=>$food];
         return view('manage.food.index',$data);
     }
 
@@ -23,6 +23,20 @@ class ManageFoodController extends Controller
     {
         $data=['id'=>$id];
 
-        return view('manage.food.index',$data);
+        return view('manage.food.edit',$data);
     }
+
+    public function store(Request $request)
+    {
+        food::create($request->all());
+        return redirect()->route('manage.food.index');
+
+    }
+
+    public function destroy($id)
+    {
+        Food::destroy($id);
+        return redirect()->route('manage.food.index');
+    }
+
 }
