@@ -7,11 +7,11 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            主控台 <small></small>
+            主控台
         </h1>
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-dashboard"></i> 主控台
+                <i class="fa fa-dashboard"></i>Master control unit.
             </li>
         </ol>
     </div>

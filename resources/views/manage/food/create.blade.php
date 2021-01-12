@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            新增餐點 <small>請輸入餐點名稱</small>
+            新增餐點
         </h1>
         <ol class="breadcrumb">
             <li class="active">
@@ -16,16 +16,7 @@
         </ol>
     </div>
 </div>
-<!-- /.row -->
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <i class="fa fa-info-circle"></i>  <strong>警告！</strong> 請修正表單錯誤：
-        </div>
-    </div>
-</div>
 <!-- /.row -->
 
 <div class="row">

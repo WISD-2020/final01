@@ -7,10 +7,10 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                林的菜單<small>所有菜單</small>
+                所有菜單
             </h1>
             <ol class="breadcrumb">
-
+                Menu.
             </ol>
         </div>
     </div>
@@ -20,20 +20,20 @@
     <div class="col-lg-12">
         <a href="{{ route('manage.food.create') }}" class="btn btn-success">建立餐點</a>
     </div>
-
+<BR>
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th width="30" style="text-align: center">餐點號碼</th>
-                        <th width="70">餐點名稱</th>
-                        <th width="70" style="text-align: center">價格</th>
-                        <th  style="text-align: center">是否缺貨</th>
-                        <th  style="text-align: center">是否為熱門餐點</th>
-                        <th>圖片</th>
-                        <th>動作</th>
+                        <th width="10%" style="text-align: center">餐點號碼</th>
+                        <th width="20%" style="text-align: center">餐點名稱</th>
+                        <th width="10%" style="text-align: center">價格</th>
+                        <th width="10%" style="text-align: center">是否缺貨</th>
+                        <th width="10%" style="text-align: center">是否為熱門餐點</th>
+                        <th width="10%" style="text-align: center">圖片</th>
+                        <th width="10%" style="text-align: center">動作</th>
 
                     </tr>
                     </thead>
@@ -42,7 +42,7 @@
                         <tr>
                             <td style="text-align: center">{{ $food->id }}</td>
                             <td style="text-align: center">{{ $food->name }}</td>
-                            <td style="text-align: center">{{ $food->price }}</td>
+                            <td style="text-align: center">${{ $food->price }}</td>
                             <td style="text-align: center">{{ ($food->is_selling)? 'V':'X' }}</td>
                             <td style="text-align: center">{{ ($food->is_hot)? 'V':'X' }}</td>
                             <td style="text-align: center">
@@ -52,7 +52,7 @@
 
 
                             <td>
-
+                            <div align="center">
                                 <a href="{{ route('manage.food.edit', $food->id) }}" class="btn btn-primary">編輯</a>
 
                                 <form action="{{route('manage.food.destroy',$food->id)}}" method="POST"style=" display: inline">
@@ -62,7 +62,7 @@
 
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('是否確認刪除')">刪除</button>
                                 </form>
-
+                            </div>
                             </td>
                         </tr>
                     @endforeach
