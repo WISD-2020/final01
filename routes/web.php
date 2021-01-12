@@ -21,10 +21,12 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->
 get('/dashboard', [\App\Http\Controllers\FoodController::class,'index'])->name('dashboard');
 
-#餐點詳細
+#餐點詳細頁面
 Route::get('/food/show/{id}',[\App\Http\Controllers\FoodController::class,'show'])->name('food.show');
 #購物車頁面
 Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
+#結帳頁面
+Route::get('/cart/final',[\App\Http\Controllers\CartController::class,'final'])->name('cart.final');
 #瀏覽點餐紀錄頁面
 Route::get('/order/history',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');
 #點餐詳細頁面

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','購物車')
+@section('title','結帳')
 
 @section('content')
 
@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="page-heading">
-                        <h1>購物車</h1>
-                        <span class="subheading">Cart.</span>
+                        <h1>結帳</h1>
+                        <span class="subheading">Pay.</span>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
 
-            @if(count($carts)>0)
+
 
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -33,7 +33,6 @@
                                 <th width="10%" style="text-align: center">價格</th>
                                 <th width="10%" style="text-align: center">數量</th>
                                 <th width="10%" style="text-align: center">小計</th>
-                                <th width="15%" style="text-align: center">刪除餐點</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -52,31 +51,36 @@
                                     <td style="text-align: center;vertical-align: middle">
                                         ${{($cart->amount)*($cart->price)}}
                                     </td>
-                                    <td style="text-align: center;vertical-align: middle">
-                                        <form action="/cart/destroy/{{$cart->id}}" method="POST"style=" display: inline">
-                                            @method('DELETE')
-                                            @csrf
-
-                                            <button type="submit" class="btn btn-danger">刪除</button>
-                                        </form>
-                                    </td>
                                 </tr>
                             @endforeach
 
                             </tbody>
                         </table>
-                    <div style="text-align:right">
-                        <b>總計：<u>${{$total}}</u></b>
-                    </div>
+                <div style="text-align:right">
+                    <b>總計：<u>${{$total}}</u></b>
+                </div>
+                <BR>
+                <table class="table table-bordered table-hover" border="0">
+                    <thead>
+                    <tr>
+                        <th>
+                             <div style="text-align:left">
+                                訂購者：<b>{{$name}}</b>
+                             </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div style="text-align:left">
+                            電話：<b>{{$user->phone}}</b>
+                            </div>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
                         <div style="text-align:center">
-                            <a class="btn btn-sm btn-primary" href="{{route('cart.final')}}">結帳</a>
+                            <a class="btn btn-sm btn-primary" href="{{route('dashboard')}}">送出訂單</a>
                         </div>
-
-                @else
-                    <div style="text-align: center">
-                        購物車裡空空如也
-                    </div>
-                @endif
             </div>
         </div>
     </div>

@@ -115,14 +115,29 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-    public function deliver(Request $request)
+    public function final()
     {
-        dd($request);
-        //orders
+        $user=Auth::user();
 
+        /** @var TYPE_NAME $name */
+        $name=Auth::user()->name;
 
+        $carts = DB::table('carts')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->where('carts.user_id', $name)
+            ->select('carts.id','food.name', 'carts.amount', 'food.price')
+            ->get();
 
+        ['carts'=>$carts];
 
-        //items
+        $total=0;
+
+        foreach ($carts as $cart)
+        {
+            $total = ($cart->price)*($cart->amount)+$total;
+        }
+
+        $data=['name'=>$name,'carts'=>$carts,'total'=>$total,'user'=>$user];
+        return view('cart.final',$data);
     }
 }
