@@ -1,10 +1,23 @@
 #系統畫面 
-(請附數張系統主要功能代表性畫面及簡要說明，系統畫面建議存放在其他網站，例如，https://imgur.com)
+請附數張系統主要功能代表性畫面及簡要說明
 
 ##前台
-
+點餐頁面
+![Imgur](https://i.imgur.com/2ibc5TK.jpg)  
+- - -
+![Imgur](https://i.imgur.com/VA4QSYV.jpg)
+- - -
+![Imgur](https://i.imgur.com/VHEpMGh.jpg)
+- - -
+![Imgur](https://i.imgur.com/rGUdujP.jpg)
+- - -
 ##後台
-
+![Imgur](https://i.imgur.com/ZkPP6eL.jpg)
+- - -
+![Imgur](https://i.imgur.com/gZ1bRJO.jpg)
+- - -
+![Imgur](https://i.imgur.com/cUCjj5R.jpg)
+- - -
 #系統名稱及作用
  
 #系統的主要功能 
