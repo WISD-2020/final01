@@ -40,7 +40,7 @@
 - - -
 
 # 系統名稱及作用
- 
+
 ## 外送點餐系統
  * 顧客可以選擇餐點、數量進行點餐
  * 顧客可以寄抱怨、回饋信件
@@ -49,7 +49,7 @@
  * 管理者可以看到目前的訂單和細項
  * 管理者可以確認訂單狀態及確認餐點已完成送出
  * 管理者可以查看顧客的抱怨、回饋信件
-
+- - -
 
 # 系統的主要功能 
 
@@ -71,7 +71,7 @@
     * 查看明細 | `Route::get('order/{id}',[\App\Http\Controllers\ManageOrderController::class,'edit'])->name('manage.order.edit');
     * 送出訂單 | `Route::delete('order/{id}',[\App\Http\Controllers\ManageOrderController::class,'destroy'])->name('manage.order.destroy');
  * 顧客回報 | `Route::get('comment', [\App\Http\Controllers\ManageCommentController::class, 'index'])->name('manage.comment.index');
-
+- - -
 ```
 #前台
 #首頁
@@ -136,11 +136,13 @@ Route::prefix('manage')->group(function () {
 
 });
 ```
-
+- - -
 ## ERD
 ![Imgur](https://i.imgur.com/KWfZIq4.png)
+- - -
 ## 關聯式綱要圖
 ![Imgur](https://i.imgur.com/4WlzBgf.png)
+- - -
 ## 資料表欄位設計
 ![Imgur](https://i.imgur.com/6Q26GhF.jpg)
 - - -
@@ -160,16 +162,16 @@ Route::prefix('manage')->group(function () {
 # 初始專案與DB負責的同學 
  * 初始專案、資料庫建立 — [3A732053 林裕倫](https://github.com/3A732053)
  * 資料庫關聯 — [3A732077 沈毓頡](https://github.com/3A732077)
- 
+ - - -
 # 額外使用的套件或樣板 
  * 前台樣板 — 使用極簡風格的[Clean Blog](https://startbootstrap.com/theme/clean-blog)
  * 使用套件：
      * doctrine/dbal — 修改資料庫欄位
-
+- - -
 # 系統測試資料存放位置 
-##### 本專案資料夾final01底下的final01.sql
-
-#系統復原
+#### 本專案資料夾final01底下的final01.sql
+- - -
+# 系統復原
 ##### 1.複製在Github的專案 https://github.com/WISD-2020/final01.git ，打開Cmder，在www底下輸入：
     git clone https://github.com/WISD-2020/final01.git 
     
@@ -197,19 +199,19 @@ Route::prefix('manage')->group(function () {
     
 ##### 6.修改UwAmp的Document Root
     {DOCUMENTPATH}/final01/public
-
+- - -
 # 系統使用者測試帳號
 
 ## 前台
 ##### 會員
     帳號：member@gmail.com
     密碼：00000000
-
+- - -
 ## 後台
 ##### 管理者
     帳號：admin@gmail.com
     密碼：00000000
-
+- - -
 # 系統開發人員與工作分配 
 
 ## 前台 — [3A732053 林裕倫](https://github.com/3A732053)
@@ -221,7 +223,7 @@ Route::prefix('manage')->group(function () {
     ．登出
     
     ．README編寫
- 
+ - - -
 ## 後台 — [3A732077 沈毓頡](https://github.com/3A732077)
     ．主控台
     ．所有餐點 
