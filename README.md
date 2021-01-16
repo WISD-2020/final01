@@ -62,6 +62,7 @@
  * 登出 | `Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');
 - - -
 ## 後台 — [3A732077 沈毓頡](https://github.com/3A732077)
+ * 主控台 | `Route::get('/', [\App\Http\Controllers\ManageDashboardController::class, 'index'])->name('manage.dashboard.index');
  * 所有餐點 | `Route::get('food',[\App\Http\Controllers\ManageFoodController::class,'index'])->name('manage.food.index');
     * 新增餐點 | `Route::get('food/create',[\App\Http\Controllers\ManageFoodController::class,'create'])->name('manage.food.create');
     * 編輯餐點 | `Route::get('food/{id}/edit',[\App\Http\Controllers\ManageFoodController::class,'edit'])->name('manage.food.edit');
@@ -161,23 +162,68 @@ Route::prefix('manage')->group(function () {
  * 資料庫關聯 — [3A732077 沈毓頡](https://github.com/3A732077)
  
 # 額外使用的套件或樣板 
- * 前台樣板 — [Clean Blog](https://startbootstrap.com/theme/clean-blog)
+ * 前台樣板 — 使用極簡風格的[Clean Blog](https://startbootstrap.com/theme/clean-blog)
  * 使用套件：
      * doctrine/dbal — 修改資料庫欄位
 
 # 系統測試資料存放位置 
-(請將測試資料由MySQL匯出後存檔，並將之加入版本管理)
-(專案復原)
+##### 本專案資料夾final01底下的final01.sql
+
+#系統復原
+##### 1.複製在Github的專案 https://github.com/WISD-2020/final01.git ，打開Cmder，在www底下輸入：
+    git clone https://github.com/WISD-2020/final01.git 
+    
+##### 2.進入專案資料夾
+    cd final01
+
+##### 3.復原專案三步驟
+    composer install
+    composer run-script post-root-package-install
+    composer run-script post-create-project-cmd
+
+##### 4.打開專案的.env檔案，修改資料庫IP、Port、名稱、密碼及資料庫
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=33060
+    DB_DATABASE=final01
+    DB_USERNAME=root
+    DB_PASSWORD=root
+
+##### 5.登入Adminer，在Admin內匯入final01專案的final01.sql
+    資料庫系統：MySQL
+    伺服器：localhost:33060
+    帳號：root
+    密碼：root
+    
+##### 6.修改UwAmp的Document Root
+    {DOCUMENTPATH}/final01/public
 
 # 系統使用者測試帳號
 
 ## 前台
+##### 會員
+    帳號：member@gmail.com
+    密碼：00000000
 
 ## 後台
+##### 管理者
+    帳號：admin@gmail.com
+    密碼：00000000
 
 # 系統開發人員與工作分配 
-(所有工作分配可全部集中於此介紹)
 
-## 前台
-
-## 後台
+## 前台 — [3A732053 林裕倫](https://github.com/3A732053)
+    ．首頁
+    ．購物車
+    ．點餐紀錄
+    ．修改會員資料
+    ．問題回報
+    ．登出
+    
+    ．README編寫
+ 
+## 後台 — [3A732077 沈毓頡](https://github.com/3A732077)
+    ．主控台
+    ．所有餐點 
+    ．目前訂單
+    ．顧客回報 
