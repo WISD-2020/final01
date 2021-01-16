@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+#前台
 #首頁
 Route::middleware(['auth:sanctum', 'verified'])->
 get('/dashboard', [\App\Http\Controllers\FoodController::class,'index'])->name('dashboard');
@@ -39,6 +41,7 @@ Route::get('/user/question',[\App\Http\Controllers\CommentsController::class,'in
 Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');
 
 
+
 #餐點加入購物車
 Route::post('/cart/store',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
 #從購物車刪除餐點
@@ -51,12 +54,6 @@ Route::get('/cart/clear',[\App\Http\Controllers\CartController::class,'clear'])-
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 #問題送出
 Route::post('/user/store',[\App\Http\Controllers\CommentsController::class,'store'])->name('user.store');
-
-
-
-
-
-
 
 
 
